@@ -45,6 +45,7 @@ public class Windowed extends javax.swing.JFrame {
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
         TFBin.setToolTipText("Digite um numero binario");
+        TFBin.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 255), 2, true));
         TFBin.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 TFBinKeyPressed(evt);
@@ -63,6 +64,8 @@ public class Windowed extends javax.swing.JFrame {
 
         TFResultado.setEditable(false);
         TFResultado.setToolTipText("Valor Convertido");
+        TFResultado.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 255), 2, true));
+        TFResultado.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         TFResultado.setEnabled(false);
         TFResultado.setFocusable(false);
 
