@@ -14,67 +14,98 @@ import javax.swing.JOptionPane;
 public class Conversion {
 
     //Variaveis principais da classe
-    String binario;                         // A String digitada no campo
+    String binario;
+    // A String digitada no campo
+
     int teste;
     /* 
-                                             * Um numero inteiro para testar se 
-                                             * todas as condições se satisfazem
-                                             * na conversão
+     * Um numero inteiro para testar se 
+     * todas as condições se satisfazem
+     * na conversão
      */
-    int bin;                                // O numero inteiro já convertido
-    
+
+    int bin;
+    // O numero inteiro já convertido
+
     //Método construtor da classe Conversion
     public Conversion() {
     }
-    
-    //Testador se todas as condições são satisfeitas de acordo com o
-    //app-ideas/bin2dec
-    public int testaCondicoes(String texto, int tipo) {
-        if (texto.equals("")) {//Primeira condição
-        //Se a string for em branca
-            if (tipo == 0) {//Se o tipo de execução for por linha de comando
-                System.err.println("O campo deve ter mais de um caractere e "+
-                        "até 8 caracteres!");//imprima isto
-            } else {//senão
-                //Mostre um JOptionpane com o texto
-                JOptionPane.showMessageDialog(null, "O campo deve ter mais de "+
-                        "um caractere e até 8 caracteres!", "Nada digitado",
-                        JOptionPane.ERROR_MESSAGE);
-            }
-        } else if (texto.length() > 8) { //segunda condição
-            //Senão se o tamanho do texto for maior que 8 caracteres
-            if (tipo == 0) {//Se o tipo de execução for por linha de comando
-                System.err.println("O campo deve ter mais de um caractere e "+
-                        "até 8 caracteres!");//imprima isto
-            } else {//senão
-                //mostre um JOptionPane com o texto
-                JOptionPane.showMessageDialog(null, "O campo deve ter mais de"+
-                        " um caractere e até 8 caracteres!", "Caracteres acima"+
-                        " do esperado", JOptionPane.ERROR_MESSAGE);
-            }
-        } else {//Se as duas condições forem satisfeitas
+
+    /**
+     * Método que testa se as condições estão de acordo com o proposto, são
+     * elas:
+     *
+     * 1º O texto não pode estar vazio 2º O campo deve aceitar somente 8 bits
+     * (caracteres binarios, 0 e 1) 3º O campo não deve aceitar caracteres
+     * diferentes do binario (caracteres 0 e 1)
+     *
+     * @param texto O texto a ser convertido
+     * @param modoExec O tipo de execução 0 para linha de comando e 1 para execução
+     * em janela
+     * @return retorna uma variavel informando se todas as condições foram
+     * validas
+     */
+    public int testaCondicoes(String texto, int modoExec) {
+        //Inicio do método que testa as condições
+
+        if (texto.equals("")) {
+            //Testa a Primeira condição (Se a string for em branca)
+
+            exibeErroConformeExecucao(modoExec,"O campo não deve estar vazio!");
+
+        } else if (texto.length() > 8) {
+            //Senão testa a Segunda condição (se o tamanho do texto for maior que 8 caracteres)
+
+            exibeErroConformeExecucao(modoExec,"O campo não deve conter mais que oito caracteres!");
+        } else {//Senão (se as duas condições forem satisfeitas)
             for (int i = 0; i < texto.length(); i++) {
-            //em todos caracteres da string
+                //em todos caracteres da string
                 if ((texto.charAt(i) == '0') || (texto.charAt(i) == '1')) {
-                    //Se o caractere atual for 0 ou 1
+                    //Testa se o caractere atual é binário (se é 0 ou 1)
                     teste = 1; // variavel de teste recebe 1
-                } else {//Senão
-                    if (tipo == 0) {
-                    //Se o tipo de execução for por linha de comando
-                        System.out.println("O campo aceita somente os "+
-                                "caracteres \'0\' e \'1\'!");
-                    } else {
-                        JOptionPane.showMessageDialog(null, "O campo aceita "+
-                                "somente os caracteres \'0\' e \'1\'!", 
-                                "Caracteres diferentes do esperado!", 
-                                JOptionPane.ERROR_MESSAGE);
-                    }
+                } else {//Senão 
+                    
+                    //chama o metodo que exibe a mensagem de acordo com a execução
+                    exibeErroConformeExecucao(modoExec,"O campo não deve conter caracteres diferentes de \'0\' e \'1\'!");
+                    
+                    //Atribua 0 á variavel teste
                     teste = 0;
-                    break;
-                }
-            }
-        }
+                    break;//quebre o laço for
+
+                }//Fim do if que testa se o caractere é um caractere binario
+
+            }//Fim do for que varre os caracteres
+
+        }//Fim do senão
+
         return teste;
+    }
+
+    /**
+     * Método que testa o modo de execução
+     *
+     * Modo de execução
+     * @param modoExec
+     * Mensagem a ser exibida
+     * @param msg
+     * 
+     */
+    public void exibeErroConformeExecucao(int modoExec,String msg) {
+        if (modoExec == 0) {
+            //Se o tipo de execução for por linha de comando
+
+            System.err.println(msg);
+            //imprima a mensagem
+
+        } else {
+            //senão 
+
+            JOptionPane.showMessageDialog(null, msg, "Ocorreu um erro!",
+                    JOptionPane.ERROR_MESSAGE);
+            //Mostre um JOptionpane com a mensagem
+
+        }//fim do if que verifica modo de execução
+
     }
 
     public void CommandLineConversion() {
@@ -85,7 +116,7 @@ public class Conversion {
         do {
             System.out.println("Digite um numero Binário:");
             binario = sc.nextLine();
-            teste = testaCondicoes(binario,0);
+            teste = testaCondicoes(binario, 0);
             if (teste == 0) {
                 continue;
             } else {
@@ -106,7 +137,7 @@ public class Conversion {
     }
 
     public int WindowedConversion(String binario) {
-        teste = testaCondicoes(binario,1);
+        teste = testaCondicoes(binario, 1);
         if (teste == 0) {
 
         } else {
