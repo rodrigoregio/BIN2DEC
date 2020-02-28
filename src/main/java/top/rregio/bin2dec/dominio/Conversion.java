@@ -29,9 +29,12 @@ public class Conversion {
     public int testaCondicoes(String texto, int tipo) {
         if (texto.equals("")) {
             if (tipo == 0) {
-                System.err.println("O campo deve ter mais de um caractere e até 8 caracteres!");
+                System.err.println("O campo deve ter mais de um caractere e "+
+                        "até 8 caracteres!");
             } else {
-                JOptionPane.showMessageDialog(null, "O campo deve ter mais de um caractere e até 8 caracteres!", "Nada digitado", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "O campo deve ter mais de "+
+                        "um caractere e até 8 caracteres!", "Nada digitado",
+                        JOptionPane.ERROR_MESSAGE);
             }
             //teste = 0;
         } else if (texto.length() > 8) {
