@@ -39,9 +39,12 @@ public class Conversion {
             //teste = 0;
         } else if (texto.length() > 8) {
             if (tipo == 0) {
-                System.err.println("O campo deve ter mais de um caractere e até 8 caracteres!");
+                System.err.println("O campo deve ter mais de um caractere e "+
+                        "até 8 caracteres!");
             } else {
-                JOptionPane.showMessageDialog(null, "O campo deve ter mais de um caractere e até 8 caracteres!", "Caracteres acima do esperado", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "O campo deve ter mais de"+
+                        " um caractere e até 8 caracteres!", "Caracteres acima"+
+                        " do esperado", JOptionPane.ERROR_MESSAGE);
             }
         } else {
             for (int i = 0; i < texto.length(); i++) {
@@ -49,9 +52,13 @@ public class Conversion {
                     teste = 1;
                 } else {
                     if (tipo == 0) {
-                        System.out.println("O campo aceita somente os caracteres \'0\' e \'1\'!");
+                        System.out.println("O campo aceita somente os "+
+                                "caracteres \'0\' e \'1\'!");
                     } else {
-                        JOptionPane.showMessageDialog(null, "O campo aceita somente os caracteres \'0\' e \'1\'!", "Caracteres diferentes do esperado!", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "O campo aceita "+
+                                "somente os caracteres \'0\' e \'1\'!", 
+                                "Caracteres diferentes do esperado!", 
+                                JOptionPane.ERROR_MESSAGE);
                     }
                     teste = 0;
                     break;
