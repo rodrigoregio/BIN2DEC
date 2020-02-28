@@ -22,36 +22,45 @@ public class Conversion {
                                              * na conversão
      */
     int bin;                                // O numero inteiro já convertido
-
+    
+    //Método construtor da classe Conversion
     public Conversion() {
     }
-
+    
+    //Testador se todas as condições são satisfeitas de acordo com o
+    //app-ideas/bin2dec
     public int testaCondicoes(String texto, int tipo) {
-        if (texto.equals("")) {
-            if (tipo == 0) {
+        if (texto.equals("")) {//Primeira condição
+        //Se a string for em branca
+            if (tipo == 0) {//Se o tipo de execução for por linha de comando
                 System.err.println("O campo deve ter mais de um caractere e "+
-                        "até 8 caracteres!");
-            } else {
+                        "até 8 caracteres!");//imprima isto
+            } else {//senão
+                //Mostre um JOptionpane com o texto
                 JOptionPane.showMessageDialog(null, "O campo deve ter mais de "+
                         "um caractere e até 8 caracteres!", "Nada digitado",
                         JOptionPane.ERROR_MESSAGE);
             }
-            //teste = 0;
-        } else if (texto.length() > 8) {
-            if (tipo == 0) {
+        } else if (texto.length() > 8) { //segunda condição
+            //Senão se o tamanho do texto for maior que 8 caracteres
+            if (tipo == 0) {//Se o tipo de execução for por linha de comando
                 System.err.println("O campo deve ter mais de um caractere e "+
-                        "até 8 caracteres!");
-            } else {
+                        "até 8 caracteres!");//imprima isto
+            } else {//senão
+                //mostre um JOptionPane com o texto
                 JOptionPane.showMessageDialog(null, "O campo deve ter mais de"+
                         " um caractere e até 8 caracteres!", "Caracteres acima"+
                         " do esperado", JOptionPane.ERROR_MESSAGE);
             }
-        } else {
+        } else {//Se as duas condições forem satisfeitas
             for (int i = 0; i < texto.length(); i++) {
+            //em todos caracteres da string
                 if ((texto.charAt(i) == '0') || (texto.charAt(i) == '1')) {
-                    teste = 1;
-                } else {
+                    //Se o caractere atual for 0 ou 1
+                    teste = 1; // variavel de teste recebe 1
+                } else {//Senão
                     if (tipo == 0) {
+                    //Se o tipo de execução for por linha de comando
                         System.out.println("O campo aceita somente os "+
                                 "caracteres \'0\' e \'1\'!");
                     } else {
