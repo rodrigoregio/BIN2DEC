@@ -22,6 +22,7 @@
                             <mainClass>top.rregio.bin2dec.teste.CommandLine</mainClass>
                         </manifest>
                     </archive>
+                    
                 </configuration>
             </plugin>
         </plugins>
