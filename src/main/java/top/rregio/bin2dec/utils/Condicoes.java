@@ -1,14 +1,11 @@
 package top.rregio.bin2dec.utils;
-
 import javax.swing.JOptionPane;
-
 /**
  *
  * @author rodrigo
  */
 public class Condicoes {
     static int teste;
-    
     /**
      * Método que testa se as condições estão de acordo com o proposto, são
      * elas:
@@ -25,16 +22,12 @@ public class Condicoes {
      */
     public static int testaCondicoes(String texto, int modoExec) {
         //Inicio do método que testa as condições
-
         if (texto.equals("")) {
             //Testa a Primeira condição (Se a string for em branca)
-
             exibeErroConformeExecucao(modoExec,"O campo não deve estar vazio!");
-
         } else if (texto.length() > 8) {
             //Senão testa a Segunda condição (se o tamanho do texto for maior 
             //que 8 caracteres)
-
             exibeErroConformeExecucao(modoExec,"O campo não deve conter mais "+
                     "que oito caracteres!");
         } else {//Senão (se as duas condições forem satisfeitas)
@@ -43,22 +36,16 @@ public class Condicoes {
                 if ((texto.charAt(i) == '0') || (texto.charAt(i) == '1')) {
                     //Testa se o caractere atual é binário (se é 0 ou 1)
                     teste = 1; // variavel de teste recebe 1
-                } else {//Senão 
-                    
+                } else {//Senão
                     //chama o metodo que exibe a mensagem de acordo com a execução
                     exibeErroConformeExecucao(modoExec,"O campo não deve conter "+
                             "caracteres diferentes de \'0\' e \'1\'!");
-                    
                     //Atribua 0 á variavel teste
                     teste = 0;
                     break;//quebre o laço for
-
                 }//Fim do if que testa se o caractere é um caractere binario
-
             }//Fim do for que varre os caracteres
-
         }//Fim do senão
-
         return teste;
     }
     /**
@@ -73,18 +60,13 @@ public class Condicoes {
     public static void exibeErroConformeExecucao(int modoExec,String msg) {
         if (modoExec == 0) {
             //Se o tipo de execução for por linha de comando
-
             System.err.println(msg);
             //imprima a mensagem
-
         } else {
             //senão 
-
             JOptionPane.showMessageDialog(null, msg, "Ocorreu um erro!",
                     JOptionPane.ERROR_MESSAGE);
             //Mostre um JOptionpane com a mensagem
-
         }//fim do if que verifica modo de execução
-
     }
 }

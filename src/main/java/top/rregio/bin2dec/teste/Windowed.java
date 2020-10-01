@@ -39,10 +39,6 @@ public class Windowed extends javax.swing.JFrame {
         TFResultado = new javax.swing.JTextField();
         lblResult = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
         jRadioButton6 = new javax.swing.JRadioButton();
         jRadioButton7 = new javax.swing.JRadioButton();
         jRadioButton8 = new javax.swing.JRadioButton();
@@ -52,8 +48,10 @@ public class Windowed extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 200));
+        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
         TFBin.setToolTipText("Digite um numero binario");
+        TFBin.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 255), 2, true));
         TFBin.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 TFBinKeyPressed(evt);
@@ -72,6 +70,7 @@ public class Windowed extends javax.swing.JFrame {
 
         TFResultado.setEditable(false);
         TFResultado.setToolTipText("Valor Convertido");
+        TFResultado.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 255), 2, true));
         TFResultado.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         TFResultado.setEnabled(false);
         TFResultado.setFocusable(false);
@@ -81,20 +80,8 @@ public class Windowed extends javax.swing.JFrame {
         lblResult.setFocusable(false);
 
         BGDe.add(jRadioButton1);
+        jRadioButton1.setSelected(true);
         jRadioButton1.setText("Binario");
-
-        BGDe.add(jRadioButton2);
-        jRadioButton2.setText("Octal");
-
-        BGDe.add(jRadioButton3);
-        jRadioButton3.setSelected(true);
-        jRadioButton3.setText("Decimal");
-
-        BGDe.add(jRadioButton4);
-        jRadioButton4.setText("Hexadecimal");
-
-        BGPara.add(jRadioButton5);
-        jRadioButton5.setText("Binário");
 
         BGPara.add(jRadioButton6);
         jRadioButton6.setText("Octal");
@@ -115,20 +102,14 @@ public class Windowed extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton5)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnConvert, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton8)
-                            .addComponent(jRadioButton4)
-                            .addComponent(jRadioButton3)
-                            .addComponent(jRadioButton2)
                             .addComponent(jRadioButton1)
                             .addComponent(lblBin)
                             .addComponent(TFBin, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnConvert, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButton8)
                             .addComponent(TFResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblResult, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jRadioButton6)
@@ -145,19 +126,11 @@ public class Windowed extends javax.swing.JFrame {
                 .addComponent(TFBin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jRadioButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btnConvert, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jRadioButton6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jRadioButton7)
@@ -167,7 +140,7 @@ public class Windowed extends javax.swing.JFrame {
                 .addComponent(lblResult, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TFResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -192,19 +165,25 @@ public class Windowed extends javax.swing.JFrame {
 
     private void btnConvertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConvertActionPerformed
         // Testando se o botão foi clicado
+        converter();
+    }//GEN-LAST:event_btnConvertActionPerformed
+    public void converter(){
         String texto = TFBin.getText();
         Conversion c = new Conversion();
-        int bin = c.WindowedConversion(texto);
-        TFResultado.setText("" + bin);
-    }//GEN-LAST:event_btnConvertActionPerformed
-
+        String bin="";
+        if(jRadioButton7.isSelected()){
+            bin = c.WindowedConversion(texto,10);
+        }else if(jRadioButton6.isSelected()){
+            bin=c.WindowedConversion(texto, 8);
+        }else if(jRadioButton8.isSelected()){
+            bin=c.WindowedConversion(texto, 16);
+        }
+        TFResultado.setText("" + bin.toUpperCase());
+    }
     private void TFBinKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFBinKeyPressed
         // Testando se tecla enter foi pressionada
         if (evt.getKeyCode() == evt.VK_ENTER) {
-            String texto = TFBin.getText();
-            Conversion c = new Conversion();
-            int bin = c.WindowedConversion(texto);
-            TFResultado.setText("" + bin);
+            converter();
         }
     }//GEN-LAST:event_TFBinKeyPressed
 
@@ -249,10 +228,6 @@ public class Windowed extends javax.swing.JFrame {
     private javax.swing.JButton btnConvert;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JRadioButton jRadioButton6;
     private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JRadioButton jRadioButton8;
